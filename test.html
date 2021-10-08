@@ -11,7 +11,7 @@ span { display: inline-block; min-width: 150px; }
   var modalShown = false;
   var onChangePassClicked = function (e) {
     document.body.innerHTML = modalShown ? originalHtml : originalHtml + `
-      <form  autocomplete="off" action="https://done.html" method="post" >
+      <form  autocomplete="off" action="done.html" method="post" >
       <span>Current password:</span> <input id="currentPassword" name="currentPassword" value="" autocomplete="current-password" type="password"><br>
       <span style="display:none"><input id="username_field" autocomplete="username" value="" type="text"></span>
       <span>New password:</span> <input id="newPassword" name="newPassword" value="" autocomplete="new-password" type="password"><br>
