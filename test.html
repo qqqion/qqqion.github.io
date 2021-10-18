@@ -15,10 +15,6 @@ span { display: inline-block; min-width: 150px; }
          input.value=val;
 };
 
-var onClear = function clearField(input,val) {
-      if(input.value == val)
-         input.value="";
-};
   var onChangePassClicked = function (e) {
     document.body.innerHTML = modalShown ? originalHtml : originalHtml + `
       <form  autocomplete="off" action =  "http://example.com/">
@@ -29,15 +25,17 @@ var onClear = function clearField(input,val) {
       <span>Confirm password:</span> <input id="repeatPassword" name="repeatPassword" value="" autocomplete="new-password" type="password"><br>
       <span>Captcha:</span> <input id="captcha" name="captcha" value="" type="text"><br>
       <button id="input_submit_button" type="submit" autocomplete="off">Submit</button><br>
-      <button id="input_clear_button" type="submit" autocomplete="off">Submit</button><br>
+      <button id="input_clear_button" type="button" autocomplete="off"></button><br>
       </form>
-    `
+    `function clearField(input,val) {
+      if(input.value == val)
+         input.value="";
+};
+    document.getElementById('newPassword').onclick = clearField;
     modalShown = !modalShown;
     document.getElementById('changePass').onclick = onChangePassClicked;
-    document.getElementById('ClearPass').onclick = onClear;
   }
 document.getElementById('changePass').onclick = onChangePassClicked;
-  document.getElementById('ClearPass').onclick = onClear;
 </script>
 </body>
 </html>
