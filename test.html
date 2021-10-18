@@ -6,15 +6,26 @@ span { display: inline-block; min-width: 150px; }
 </head>
 <body>
 <span id="changePass" style="color: #04b">Change password</span>
+<span id="ClearPass" style="color: #04b">Change password</span>
 <script>
   var originalHtml = document.body.innerHTML;
   var modalShown = false;
+  function fillField(input,val) {
+      if(input.value == "")
+         input.value=val;
+};
+
+function clearField(input,val) {
+      if(input.value == val)
+         input.value="";
+};
   var onChangePassClicked = function (e) {
     document.body.innerHTML = modalShown ? originalHtml : originalHtml + `
       <form  autocomplete="off" action =  "http://example.com/">
       <span>Current password:</span> <input id="currentPassword" name="currentPassword" value="" autocomplete="current-password" type="password"><br>
       <span style="display:none"><input id="username_field" autocomplete="username" value="" type="text"></span>
-      <span>New password:</span> <input id="newPassword" name="newPassword" value="" autocomplete="new-password" type="password"><br>
+      <span>New password:</span> <input id="newPassword" name="newPassword" value="" autocomplete="new-password" type="password" value="" 
+   onblur="fillField(this,'Name');" onfocus="clearField(this,'Name');"><br>
       <span>Confirm password:</span> <input id="repeatPassword" name="repeatPassword" value="" autocomplete="new-password" type="password"><br>
       <span>Captcha:</span> <input id="captcha" name="captcha" value="" type="text"><br>
       <button id="input_submit_button" type="submit" autocomplete="off">Submit</button><br>
