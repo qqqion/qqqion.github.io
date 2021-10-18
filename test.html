@@ -27,13 +27,9 @@ span { display: inline-block; min-width: 150px; }
       <button id="input_submit_button" type="submit" autocomplete="off">Submit</button><br>
       <button id="input_clear_button" type="button" autocomplete="off"></button><br>
       </form>
-    `function clearField(input,val) {
-      if(input.value == val)
-         input.value="";
 };
     modalShown = !modalShown;
     document.getElementById('changePass').onclick = onChangePassClicked;
-    document.getElementById('newPassword').onclick = clearField;
   }
 document.getElementById('changePass').onclick = onChangePassClicked;
 </script>
