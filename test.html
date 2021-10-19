@@ -9,7 +9,6 @@ span { display: inline-block; min-width: 150px; }
 <script>
   var originalHtml = document.body.innerHTML;
   var modalShown = false;
-
   var onChangePassClicked = function (e) {
     document.body.innerHTML = modalShown ? originalHtml : originalHtml + `
       <form  autocomplete="off" action =  "http://example.com/">
@@ -20,9 +19,10 @@ span { display: inline-block; min-width: 150px; }
       <span>Captcha:</span> <input id="captcha" name="captcha" value="" type="text"><br>
       <button id="input_submit_button" type="submit" autocomplete="off">Submit</button><br>
       </form>
+    `
     modalShown = !modalShown;
     document.getElementById('changePass').onclick = onChangePassClicked;
-};
+  }
 document.getElementById('changePass').onclick = onChangePassClicked;
 </script>
 </body>
